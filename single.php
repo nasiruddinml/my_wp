@@ -25,6 +25,21 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 
 					<?php get_template_part( 'loop-templates/content', 'single' ); ?>
 
+					<div class="carousel owl-theme owl-carousel slide" data-ride="carousel">
+						<?php
+						// Get the list of files
+							$files = get_post_meta( get_the_ID(), '_cmb_testing', 1 );
+
+							// Loop through them and output an image
+							foreach ( (array) $files as $attachment_id => $attachment_url ) {
+									echo '<div class="carousel-item">';
+									echo wp_get_attachment_image( $attachment_id, 'medium' );
+									echo '</div>';
+							};
+						?>
+					</div>
+
+
 						<?php understrap_post_nav(); ?>
 
 					<?php

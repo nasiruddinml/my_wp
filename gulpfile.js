@@ -15,7 +15,7 @@ var browserSyncWatchFiles = [
 // browser-sync options
 // see: https://www.browsersync.io/docs/options/
 var browserSyncOptions = {
-    proxy: "localhost/wordpress/",
+    proxy: "localhost/bestcar/",
     notify: false
 };
 
@@ -142,7 +142,8 @@ gulp.task('scripts', function() {
 
     // End - All BS4 stuff
 
-    basePaths.dev + 'js/skip-link-focus-fix.js'
+    basePaths.dev + 'js/skip-link-focus-fix.js',
+    basePaths.dev + 'js/custom.js'
     ])
     .pipe(concat('theme.min.js'))
     .pipe(uglify())
@@ -157,7 +158,8 @@ gulp.task('scripts', function() {
 
     // End - All BS4 stuff
 
-    basePaths.dev + 'js/skip-link-focus-fix.js'
+    basePaths.dev + 'js/skip-link-focus-fix.js',
+    basePaths.dev + 'js/custom.js'
     ])
     .pipe(concat('theme.js'))
     .pipe(gulp.dest('./js/'));

@@ -33,4 +33,24 @@ function understrap_excerpt_with_length( $post_id, $word_count ) {
 
 	return $excerpt;
 }
+add_action( 'cmb2_init', 'cmb2_add_metabox' );
+function cmb2_add_metabox() {
 
+	$prefix = '_cmb_';
+
+	$cmb = new_cmb2_box( array(
+		'id'           => $prefix . 'metabox',
+		'title'        => __( 'Test Input', 'cmb2' ),
+		'object_types' => array( 'page', 'post' ),
+		'context'      => 'normal',
+		'priority'     => 'default',
+	) );
+
+	$cmb->add_field( array(
+		'name' => __( 'Test Image Upload', 'cmb2' ),
+		'id' => $prefix . 'testing',
+		'type' => 'file_list',
+		'preview_size' => array( '500', '500' ),
+	) );
+
+}
